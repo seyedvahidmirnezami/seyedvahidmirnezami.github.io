@@ -327,3 +327,43 @@ code { font-family: var(--font-mono); font-size: .88em; padding: .1em .35em; bor
 
 h1, h2, h3 { text-wrap: balance; }
 .lead, .section__lead, .about__text p { text-wrap: pretty; }
+
+/* ---------- Multi-course + coupon ---------- */
+.hero__coupon { margin: 18px 0 0; font-size: 15px; color: var(--muted); }
+.hero__coupon a { font-weight: 600; }
+.course-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.course-card { display: flex; flex-direction: column; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); transition: transform .3s var(--ease), border-color .3s; }
+.course-card:hover { transform: translateY(-3px); border-color: var(--border-strong); }
+.course-card__img { aspect-ratio: 1200 / 630; object-fit: cover; width: 100%; border-bottom: 1px solid var(--border); }
+.course-card__body { display: flex; flex-direction: column; gap: 10px; padding: 22px; flex: 1; }
+.course-card__body h3 { font-size: 20px; }
+.course-card__tagline { color: var(--muted); margin: 0; font-size: 15px; flex: 1; }
+.course-card__status { margin: 0; font: 600 12px var(--font-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--cyan); }
+.course-card__status--soon { color: var(--amber); }
+.course-card__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+
+/* Coupon page */
+.coupon { min-height: calc(100vh - 68px - 86px); padding: clamp(48px, 8vw, 96px) 0; position: relative; overflow: hidden; }
+.coupon::before { content: ""; position: absolute; inset: -30% -20% auto auto; width: 70%; height: 100%; background: radial-gradient(closest-side, var(--glow-a), transparent); pointer-events: none; }
+.coupon__inner { position: relative; display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
+.coupon h1 { font-size: clamp(36px, 5vw, 56px); margin-bottom: 18px; }
+.steps { list-style: none; counter-reset: step; padding: 0; margin: 28px 0 0; display: grid; gap: 14px; }
+.steps li { counter-increment: step; display: flex; gap: 14px; align-items: flex-start; color: var(--muted); }
+.steps li::before { content: counter(step); flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font: 600 14px var(--font-mono); color: var(--cyan); background: color-mix(in srgb, var(--cyan) 14%, transparent); }
+.steps strong { color: var(--text); }
+.form-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(20px, 3vw, 32px); box-shadow: var(--shadow); }
+.field { display: grid; gap: 8px; margin-bottom: 18px; }
+.field label { font-weight: 600; font-size: 14px; }
+.field select, .field input, .field textarea {
+  width: 100%; font: 400 15px/1.55 var(--font-body); color: var(--text);
+  background: var(--bg-alt); border: 1px solid var(--border-strong); border-radius: 12px; padding: 12px 14px;
+}
+.field textarea { min-height: 150px; resize: vertical; }
+.field select:focus, .field input:focus, .field textarea:focus { outline: 2px solid var(--cyan); outline-offset: 1px; border-color: transparent; }
+.field__hint { font-size: 13px; color: var(--faint); }
+.form-card__actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.toast { font-size: 14px; color: var(--cyan); font-weight: 500; }
+.coupon__alt { margin-top: 18px; font-size: 14px; color: var(--faint); }
+@media (max-width: 860px) { .coupon__inner { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .course-grid { grid-template-columns: 1fr; } .form-card__actions .btn { width: 100%; justify-content: center; } }
