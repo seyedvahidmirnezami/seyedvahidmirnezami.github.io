@@ -1,8 +1,7 @@
 (() => {
   "use strict";
 
-  const COURSE_URL = "https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/";
-  const GH_USER = "seyedvahidmirnezami";
+    const GH_USER = (window.SITE && window.SITE.owner.github) || "seyedvahidmirnezami";
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -144,36 +143,70 @@
   }));
   renderDemo();
 
+  /* ---------- Courses (from assets/data/site.js) ---------- */
+  const SITE = window.SITE || { courses: [], repos: [] };
+  const courses = SITE.courses;
+  const featured = courses.find((c) => c.featured) || courses[0];
+  const couponHref = (slug) => `coupon/?course=${encodeURIComponent(slug)}`;
+  const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  const PILLAR_ICONS = {
+    numbers: '<path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/>',
+    code: '<path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/>',
+    star: '<path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.8 6.5 19.5l1-6.3L3 8.9 9 8z"/>',
+    eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
+    chip: '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+  };
+
+  // Every enroll button points at the featured course's referral link.
+  if (featured) {
+    document.querySelectorAll("[data-featured-link]").forEach((a) => { a.href = featured.url; });
+    document.querySelectorAll("[data-coupon-link]").forEach((a) => { a.href = couponHref(featured.slug); });
+  }
+
+  // Course cards appear once there is more than one course.
+  if (courses.length > 1) {
+    $("#courses").hidden = false;
+    $("#fc-kicker").textContent = "Featured course";
+    $("#course-grid").innerHTML = courses.map((c) => `
+      <article class="course-card reveal is-visible">
+        ${c.image ? `<img class="course-card__img" src="${c.image}" alt="" loading="lazy">` : ""}
+        <div class="course-card__body">
+          <p class="course-card__status course-card__status--${c.status}">${c.status === "soon" ? "Coming soon" : (c.sessionsLabel || "Available now")}</p>
+          <h3>${c.title}</h3>
+          <p class="course-card__tagline">${c.tagline}</p>
+          <div class="repo__tags">${(c.tags || []).map((t) => `<span>${t}</span>`).join("")}</div>
+          <div class="course-card__actions">
+            ${c.status === "soon"
+              ? `<a class="btn btn--ghost btn--sm" href="${SITE.owner.linkedin}" target="_blank" rel="noopener">Follow for launch news</a>`
+              : `<a class="btn btn--primary btn--sm" href="${c.url}" target="_blank" rel="noopener">Enroll ${arrow}</a>
+                 <a class="btn btn--ghost btn--sm" href="${couponHref(c.slug)}">Get a coupon</a>`}
+          </div>
+        </div>
+      </article>`).join("");
+  }
+
+  // Featured course detail.
+  if (featured) {
+    $("#fc-title").textContent = featured.title;
+    $("#fc-lead").innerHTML = `${featured.tagline}${featured.coInstructor
+      ? ` Co-created with <a href="${featured.coInstructor.url}" target="_blank" rel="noopener">${featured.coInstructor.name}</a>.` : ""}
+      You won't just hear definitions. You'll see the numbers, build the layers, and ship code that runs.`;
+    $("#fc-pillars").innerHTML = (featured.pillars || []).map((p) => `
+      <article class="pillar reveal is-visible">
+        <div class="pillar__icon pillar__icon--${p.color}" aria-hidden="true"><svg viewBox="0 0 24 24">${PILLAR_ICONS[p.icon] || PILLAR_ICONS.star}</svg></div>
+        <h3>${p.title}</h3>
+        <p>${p.text}</p>
+      </article>`).join("");
+    $("#fc-cta-title").textContent = featured.ctaTitle || "";
+    $("#fc-cta-sub").textContent = featured.ctaSub || "";
+  }
+
   /* ---------- Syllabus ---------- */
-  const TRACKS = [
-    { name: "Attention math", range: "0–7", lessons: [
-      [0, "Vectors, Dot Products, and Matrices"],
-      [1, "Why Attention? From Ambiguity to Context"],
-      [2, "Self-Attention with Real Numbers", "self-attention-from-scratch"],
-      [3, "Making Attention Learnable: Query, Key, and Value", "self-attention-from-scratch"],
-      [4, "Multi-Head Attention", "self-attention-from-scratch"],
-      [5, "The Transformer Encoder Block", "transformer-encoder-pytorch"],
-      [6, "Positional Encoding", "transformer-encoder-pytorch"],
-      [7, "BERT: The Encoder in the Wild"],
-    ]},
-    { name: "PyTorch", range: "8–10", lessons: [
-      [8, "Tensors, Shape & the Tree Mental Model"],
-      [9, "Autograd & nn.Module"],
-      [10, "Data Pipelines & Layer Containers"],
-    ]},
-    { name: "BERT projects", range: "11–14", lessons: [
-      [11, "BERT-Base Masked Language Model Pretraining in PyTorch"],
-      [12, "Fine-Tune BERT for Disaster Tweet Classification"],
-      [13, "Fine-Tune BERT for Named Entity Recognition"],
-      [14, "Knowledge Distillation and DistilBERT"],
-    ]},
-    { name: "Vision & search", range: "15–16", lessons: [
-      [15, "Vision Transformers and Cassava Leaf Disease", "vision-transformer-cassava"],
-      [16, "Two Towers From Scratch: Semantic Search", "semantic-search-two-tower"],
-    ]},
-  ];
+  const TRACKS = (featured && featured.tracks) || [];
   const tabsEl = $(".syllabus__tabs");
   const listEl = $("#syllabus-list");
+  if (!TRACKS.length) $("#syllabus").hidden = true;
   tabsEl.innerHTML = TRACKS.map((t, i) =>
     `<button type="button" class="tab" role="tab" aria-selected="${i === 0}" data-i="${i}">${t.name}<small>${t.range}</small></button>`).join("");
   const renderTrack = (i) => {
@@ -189,23 +222,10 @@
     const b = e.target.closest(".tab");
     if (b) renderTrack(+b.dataset.i);
   });
-  renderTrack(0);
+  if (TRACKS.length) renderTrack(0);
 
   /* ---------- Repos ---------- */
-  const REPOS = [
-    { name: "self-attention-from-scratch", sessions: "Sessions 2–4", lang: "Jupyter Notebook",
-      desc: "Self-attention explained with real numbers, then built in NumPy and PyTorch. Tests check every hand-worked number.",
-      tags: ["attention", "numpy", "pytorch"] },
-    { name: "transformer-encoder-pytorch", sessions: "Sessions 5–6", lang: "Jupyter Notebook",
-      desc: "The full encoder block from scratch, plus an experiment: 50% accuracy without positional encoding, 100% with it.",
-      tags: ["encoder", "positional-encoding", "pytorch"] },
-    { name: "vision-transformer-cassava", sessions: "Session 15", lang: "Jupyter Notebook",
-      desc: "Fine-tune a Vision Transformer on Kaggle cassava leaf photos, from patches to a competition submission.",
-      tags: ["vit", "computer-vision", "kaggle"] },
-    { name: "semantic-search-two-tower", sessions: "Session 16", lang: "Jupyter Notebook",
-      desc: "Two-tower retrieval and cross-encoder re-ranking, built by hand from a plain transformer encoder.",
-      tags: ["retrieval", "embeddings", "kaggle"] },
-  ];
+  const REPOS = SITE.repos || [];
   const repoIcon = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.71 1.71.75.75 0 0 1-1.07 1.06A2.49 2.49 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.71A2.5 2.5 0 0 1 4.5 9h8V1.5z"/></svg>';
   const starIcon = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .67.42l1.88 3.8 4.19.61a.75.75 0 0 1 .42 1.28l-3.04 2.96.72 4.17a.75.75 0 0 1-1.09.79L8 12.31l-3.75 1.97a.75.75 0 0 1-1.09-.79l.72-4.17L.84 6.36a.75.75 0 0 1 .42-1.28l4.19-.61L7.33.67A.75.75 0 0 1 8 .25z"/></svg>';
   $("#repos").innerHTML = REPOS.map((r) => `
@@ -213,7 +233,7 @@
       <div class="repo__top">${repoIcon}<span class="repo__name">${r.name}</span><span class="repo__session">${r.sessions}</span></div>
       <p class="repo__desc">${r.desc}</p>
       <div class="repo__meta">
-        <span><i class="lang-dot lang-dot--nb"></i>${r.lang}</span>
+        <span><i class="lang-dot lang-dot--nb"></i>${r.lang || "Jupyter Notebook"}</span>
         <span data-stars="${r.name}" hidden>${starIcon}<b>0</b></span>
       </div>
       <div class="repo__tags">${r.tags.map((t) => `<span>${t}</span>`).join("")}</div>

@@ -57,6 +57,7 @@
       </a>
       <nav class="nav__links" aria-label="Primary">
         <a href="#course">Course</a>
+        <a href="coupon/">Coupon</a>
         <a href="#demo">Try attention</a>
         <a href="#code">Open source</a>
         <a href="#about">About</a>
@@ -66,7 +67,7 @@
           <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
         </button>
-        <a class="btn btn--primary btn--sm nav__cta" href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/" target="_blank" rel="noopener">Enroll</a>
+        <a class="btn btn--primary btn--sm nav__cta" data-featured-link href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/?referralCode=741D2251A98D41859FB9" target="_blank" rel="noopener">Enroll</a>
       </div>
     </div>
   </header>
@@ -82,12 +83,13 @@
           <h1>Transformers,<br><span class="grad">from the math up.</span></h1>
           <p class="lead">I teach the model behind BERT, Vision Transformers and modern AI search the way it actually works: real numbers you can check on paper, then clean PyTorch, then real Kaggle projects.</p>
           <div class="hero__ctas">
-            <a class="btn btn--primary" href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/" target="_blank" rel="noopener">
+            <a class="btn btn--primary" data-featured-link href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/?referralCode=741D2251A98D41859FB9" target="_blank" rel="noopener">
               Explore the course
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
             <a class="btn btn--ghost" href="#code">Free code on GitHub</a>
           </div>
+          <p class="hero__coupon">Want a discount? <a data-coupon-link href="coupon/">Ask me for a coupon →</a></p>
           <ul class="hero__facts" aria-label="Highlights">
             <li><strong>17</strong><span>sessions</span></li>
             <li><strong>NLP · Vision · Search</strong><span>hands-on projects</span></li>
@@ -121,55 +123,44 @@
       </div>
     </section>
 
-    <!-- COURSE -->
+    <!-- COURSES (shown when there is more than one course) -->
+    <section class="section" id="courses" hidden>
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">Courses</p>
+          <h2>Learn AI the way it actually works</h2>
+          <p class="section__lead">Every course follows the same path: work through the math with real numbers, build it in PyTorch, then ship real projects.</p>
+        </div>
+        <div class="course-grid" id="course-grid"></div>
+      </div>
+    </section>
+
+    <!-- FEATURED COURSE (filled from assets/data/site.js) -->
     <section class="section" id="course">
       <div class="container">
         <div class="section__head reveal">
-          <p class="kicker">The course</p>
-          <h2>Master Transformers from Scratch: BERT, ViT &amp; AI Search</h2>
-          <p class="section__lead">A complete path through modern transformers, co-created with <a href="https://github.com/khalili65" target="_blank" rel="noopener">Mohammad R. Khalili Shoja</a>. You won't just hear definitions. You'll see the numbers, build the layers, and ship notebooks that run on Kaggle's free GPUs.</p>
+          <p class="kicker" id="fc-kicker">The course</p>
+          <h2 id="fc-title">Master Transformers from Scratch: BERT, ViT &amp; AI Search</h2>
+          <p class="section__lead" id="fc-lead"></p>
         </div>
-
-        <div class="pillars">
-          <article class="pillar reveal">
-            <div class="pillar__icon pillar__icon--cyan" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/></svg>
-            </div>
-            <h3>Real numbers first</h3>
-            <p>Self-attention, Q/K/V and multi-head attention computed by hand on a three-word sentence, so every formula has a number you can check.</p>
-          </article>
-          <article class="pillar reveal">
-            <div class="pillar__icon pillar__icon--amber" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg>
-            </div>
-            <h3>Then build it in PyTorch</h3>
-            <p>Tensors, autograd and <code>nn.Module</code>, then a BERT-style masked language model written layer by layer.</p>
-          </article>
-          <article class="pillar reveal">
-            <div class="pillar__icon pillar__icon--violet" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.8 6.5 19.5l1-6.3L3 8.9 9 8z"/></svg>
-            </div>
-            <h3>Then ship real projects</h3>
-            <p>Text classification, named entity recognition, distillation, Vision Transformers and two-tower semantic search on real Kaggle data.</p>
-          </article>
-        </div>
-
+        <div class="pillars" id="fc-pillars"></div>
         <div class="syllabus reveal" id="syllabus">
           <div class="syllabus__tabs" role="tablist" aria-label="Course tracks"></div>
           <ol class="syllabus__list" id="syllabus-list"></ol>
         </div>
-
         <div class="course-cta reveal">
           <div>
-            <p class="course-cta__title">Interview-ready intuition and working code, in one place.</p>
-            <p class="course-cta__sub">A guide for every session, and runnable code for every project.</p>
+            <p class="course-cta__title" id="fc-cta-title"></p>
+            <p class="course-cta__sub" id="fc-cta-sub"></p>
           </div>
-          <a class="btn btn--primary" href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/" target="_blank" rel="noopener">
-            Enroll on Udemy
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <div class="course-cta__actions">
+            <a class="btn btn--ghost" data-coupon-link href="coupon/">Get a coupon</a>
+            <a class="btn btn--primary" data-featured-link href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/?referralCode=741D2251A98D41859FB9" target="_blank" rel="noopener">
+              Enroll on Udemy
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
         </div>
-      </div>
     </section>
 
     <!-- DEMO -->
@@ -276,11 +267,11 @@
         <h2>Stop treating transformers as a black box.</h2>
         <p>Go from vectors and dot products to BERT, Vision Transformers and semantic search, with code you understand line by line.</p>
         <div class="hero__ctas hero__ctas--center">
-          <a class="btn btn--primary" href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/" target="_blank" rel="noopener">
+          <a class="btn btn--primary" data-featured-link href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/?referralCode=741D2251A98D41859FB9" target="_blank" rel="noopener">
             Start the course
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn btn--ghost" href="https://www.linkedin.com/in/seyedvahidmirnezami" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <a class="btn btn--ghost" data-coupon-link href="coupon/">Get a coupon</a>
         </div>
       </div>
     </section>
@@ -292,11 +283,12 @@
       <nav aria-label="Footer">
         <a href="https://github.com/seyedvahidmirnezami" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/seyedvahidmirnezami" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/" target="_blank" rel="noopener">Udemy</a>
+        <a data-featured-link href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/?referralCode=741D2251A98D41859FB9" target="_blank" rel="noopener">Udemy</a>
       </nav>
     </div>
   </footer>
 
+  <script src="assets/data/site.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
