@@ -2,7 +2,7 @@
   "use strict";
 
   const ME = "Seyed Vahid Mirnezami";
-  const LQ = "https://latentquest.github.io/";
+  const LQ = "https://latentquest.ai/";
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = (sel) => document.querySelector(sel);
   const root = document.documentElement;
