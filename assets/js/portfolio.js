@@ -23,7 +23,7 @@
   $("#year").textContent = new Date().getFullYear();
 
   /* ---------- Live course list from LatentQuest ---------- */
-  // site.js from latentquest.github.io sets window.SITE. If it didn't load,
+  // site.js from latentquest.ai sets window.SITE. If it didn't load,
   // the static course card in the HTML stays as a fallback.
   const site = window.SITE;
   if (site && Array.isArray(site.courses)) {
