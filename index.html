@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vahid Mirnezami · Transformers from the Math Up</title>
-  <meta name="description" content="Seyed Vahid Mirnezami, Senior Computer Vision Scientist and co-creator of the LatentQuest course Master Transformers from Scratch: BERT, ViT & AI Search. Free open-source code, interactive demos and the full course.">
+  <title>Seyed Vahid Mirnezami · Senior Computer Vision Scientist</title>
+  <meta name="description" content="Seyed Vahid Mirnezami, Ph.D., Senior Computer Vision Scientist at Bayer Crop Science. Deep learning, computer vision, generative AI and vision–language models in production. Co-creator of LatentQuest courses.">
   <meta name="author" content="Seyed Vahid Mirnezami">
   <link rel="canonical" href="https://seyedvahidmirnezami.github.io/">
 
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="profile">
   <meta property="og:url" content="https://seyedvahidmirnezami.github.io/">
-  <meta property="og:title" content="Vahid Mirnezami · Transformers from the Math Up">
-  <meta property="og:description" content="Learn transformers the way they actually work: real numbers first, then PyTorch, then real Kaggle projects.">
+  <meta property="og:title" content="Seyed Vahid Mirnezami · Senior Computer Vision Scientist">
+  <meta property="og:description" content="Computer vision and deep learning in production, from multi-modal imaging to vision–language models. Co-creator of LatentQuest.">
   <meta property="og:image" content="https://seyedvahidmirnezami.github.io/assets/img/og-cover.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -20,27 +20,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-
   <script>
-    // Apply the saved theme before first paint to avoid a flash.
     try {
       const saved = localStorage.getItem("theme");
       if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
     } catch (e) {}
   </script>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Seyed Vahid Mirnezami",
+    "honorificSuffix": "Ph.D.",
     "jobTitle": "Senior Computer Vision Scientist",
+    "worksFor": {"@type": "Organization", "name": "Bayer Crop Science"},
+    "alumniOf": {"@type": "CollegeOrUniversity", "name": "Iowa State University"},
+    "image": "https://seyedvahidmirnezami.github.io/assets/img/people/vahid.jpg",
     "url": "https://seyedvahidmirnezami.github.io/",
     "sameAs": [
       "https://github.com/seyedvahidmirnezami",
-      "https://www.linkedin.com/in/seyedvahidmirnezami"
-    ],
-    "alumniOf": "Iowa State University"
+      "https://www.linkedin.com/in/seyedvahidmirnezami",
+      "https://latentquest.ai/"
+    ]
   }
   </script>
 </head>
@@ -56,222 +57,226 @@
         <span class="brand__text">Vahid Mirnezami</span>
       </a>
       <nav class="nav__links" aria-label="Primary">
-        <a href="#course">Course</a>
-        <a href="coupon/">Coupon</a>
-        <a href="#demo">Try attention</a>
-        <a href="#code">Open source</a>
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
       </nav>
       <div class="nav__actions">
         <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch color theme">
           <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
         </button>
-        <a class="btn btn--primary btn--sm nav__cta" data-featured-link href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/?referralCode=741D2251A98D41859FB9" target="_blank" rel="noopener">Enroll</a>
+        <a class="btn btn--primary btn--sm nav__cta" href="https://www.linkedin.com/in/seyedvahidmirnezami" target="_blank" rel="noopener">Connect</a>
       </div>
     </div>
   </header>
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero hero--portfolio">
       <canvas class="hero__canvas" id="attention-canvas" aria-hidden="true"></canvas>
       <div class="hero__glow" aria-hidden="true"></div>
       <div class="container hero__inner">
         <div class="hero__copy reveal">
-          <p class="eyebrow"><span class="dot"></span> Senior Computer Vision Scientist · Co-creator of LatentQuest</p>
-          <h1>Transformers,<br><span class="grad">from the math up.</span></h1>
-          <p class="lead">I teach the model behind BERT, Vision Transformers and modern AI search the way it actually works: real numbers you can check on paper, then clean PyTorch, then real Kaggle projects.</p>
+          <p class="eyebrow"><span class="dot"></span> Senior Computer Vision Scientist · Bayer Crop Science</p>
+          <h1>Seyed Vahid<br><span class="grad">Mirnezami</span></h1>
+          <p class="lead">I build computer vision and deep learning systems that run in production, from multi-modal imaging and drone-based field analytics to generative AI and vision–language models. I also co-create <a href="https://latentquest.ai/" target="_blank" rel="noopener">LatentQuest</a> courses, where I teach AI from the math up.</p>
           <div class="hero__ctas">
-            <a class="btn btn--primary" data-featured-link href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/?referralCode=741D2251A98D41859FB9" target="_blank" rel="noopener">
-              Explore the course
+            <a class="btn btn--primary" href="#experience">
+              See my work
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a class="btn btn--ghost" href="#code">Free code on GitHub</a>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/seyedvahidmirnezami" target="_blank" rel="noopener">LinkedIn</a>
           </div>
-          <p class="hero__coupon">Want a discount? <a data-coupon-link href="coupon/">Ask me for a coupon →</a></p>
-          <ul class="hero__facts" aria-label="Highlights">
-            <li><strong>17</strong><span>sessions</span></li>
-            <li><strong>NLP · Vision · Search</strong><span>hands-on projects</span></li>
-            <li><strong>PyTorch</strong><span>built from scratch</span></li>
+          <ul class="stats" aria-label="Highlights">
+            <li><strong>Ph.D.</strong><span>Mechanical Engineering, Iowa State University</span></li>
+            <li><strong>10+ years</strong><span>in machine learning and computer vision</span></li>
+            <li><strong>3</strong><span>patent filings as an inventor</span></li>
           </ul>
         </div>
-
-        <aside class="hero__card reveal" aria-label="Profile">
-          <div class="profile">
-            <img class="profile__photo" src="https://github.com/seyedvahidmirnezami.png?size=320" alt="Portrait of Seyed Vahid Mirnezami" width="96" height="96" loading="eager">
-            <div>
-              <p class="profile__name">Seyed Vahid Mirnezami</p>
-              <p class="profile__role">Deep Learning · GenAI · Vision–Language Models</p>
-            </div>
-          </div>
-          <div class="mini-matrix" aria-hidden="true">
-            <div class="mini-matrix__label">attention("bank of river")</div>
-            <div class="mini-matrix__grid" id="mini-matrix"></div>
-          </div>
-          <div class="profile__links">
-            <a href="https://github.com/seyedvahidmirnezami" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/seyedvahidmirnezami" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-              LinkedIn
-            </a>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- COURSES (shown when there is more than one course) -->
-    <section class="section" id="courses" hidden>
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="kicker">Courses</p>
-          <h2>Learn AI the way it actually works</h2>
-          <p class="section__lead">Every course follows the same path: work through the math with real numbers, build it in PyTorch, then ship real projects.</p>
-        </div>
-        <div class="course-grid" id="course-grid"></div>
-      </div>
-    </section>
-
-    <!-- FEATURED COURSE (filled from assets/data/site.js) -->
-    <section class="section" id="course">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="kicker" id="fc-kicker">The course</p>
-          <h2 id="fc-title">Master Transformers from Scratch: BERT, ViT &amp; AI Search</h2>
-          <p class="section__lead" id="fc-lead"></p>
-        </div>
-        <div class="pillars" id="fc-pillars"></div>
-        <div class="syllabus reveal" id="syllabus">
-          <div class="syllabus__tabs" role="tablist" aria-label="Course tracks"></div>
-          <ol class="syllabus__list" id="syllabus-list"></ol>
-        </div>
-        <div class="course-cta reveal">
-          <div>
-            <p class="course-cta__title" id="fc-cta-title"></p>
-            <p class="course-cta__sub" id="fc-cta-sub"></p>
-          </div>
-          <div class="course-cta__actions">
-            <a class="btn btn--ghost" data-coupon-link href="coupon/">Get a coupon</a>
-            <a class="btn btn--primary" data-featured-link href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/?referralCode=741D2251A98D41859FB9" target="_blank" rel="noopener">
-              Enroll on Udemy
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-          </div>
-        </div>
-    </section>
-
-    <!-- DEMO -->
-    <section class="section section--alt" id="demo">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="kicker">Try it</p>
-          <h2>Self-attention, live, with real numbers</h2>
-          <p class="section__lead">The running example from the course. Pick a word to see how much it attends to every other word, and the new context-aware vector it ends up with. Everything below is computed live in your browser.</p>
-        </div>
-
-        <div class="demo reveal">
-          <div class="demo__controls">
-            <div class="segmented" role="radiogroup" aria-label="Attention type">
-              <button type="button" role="radio" aria-checked="true" data-mode="raw">softmax(X·Xᵀ)·X</button>
-              <button type="button" role="radio" aria-checked="false" data-mode="qkv">softmax(Q·Kᵀ/√d)·V</button>
-            </div>
-            <p class="demo__hint" id="demo-hint">Session 2: attention with no learned weights.</p>
-          </div>
-
-          <div class="demo__words" role="radiogroup" aria-label="Query word" id="demo-words"></div>
-
-          <div class="demo__grid">
-            <div class="panel">
-              <p class="panel__title">Focus weights for <span class="hl" id="demo-query">bank</span></p>
-              <div class="bars" id="demo-bars"></div>
-              <p class="panel__note">Each row of the attention matrix sums to 1.</p>
-            </div>
-            <div class="panel">
-              <p class="panel__title">Full attention matrix</p>
-              <div class="matrix" id="demo-matrix"></div>
-              <p class="panel__note">Rows = queries, columns = keys.</p>
-            </div>
-            <div class="panel">
-              <p class="panel__title">Vector before → after</p>
-              <div class="vecs" id="demo-vecs"></div>
-              <p class="panel__note" id="demo-vec-note">The new vector is a weighted mix of every word.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OPEN SOURCE -->
-    <section class="section" id="code">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="kicker">Open source</p>
-          <h2>Free code from the course</h2>
-          <p class="section__lead">Readable, tested, and runnable in Colab or on Kaggle. Start here, then take the full course for the complete path.</p>
-        </div>
-        <div class="repos" id="repos"></div>
+        <figure class="portrait reveal">
+          <img src="assets/img/people/vahid-portrait.jpg" alt="Portrait of Seyed Vahid Mirnezami" width="720" height="828">
+          <figcaption>
+            <span class="portrait__status"><i></i> Building vision–language systems</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section class="section section--alt" id="about">
+    <section class="section" id="about">
       <div class="container about">
         <div class="about__text reveal">
-          <p class="kicker">About me</p>
-          <h2>Building vision and language systems that work in production</h2>
-          <p>I'm a Senior Computer Vision Scientist focused on deep learning, generative AI, and large vision–language models for real-world production systems. My background spans industrial computer vision and applied machine learning, including earlier work as a data scientist on document intelligence pipelines.</p>
-          <p>I did my graduate research at Iowa State University on machine learning and computer vision for plant phenotyping, object detection, and high-throughput image analysis.</p>
-          <p>Through LatentQuest, I teach what I wish I'd been taught: understand every layer, then build it, then ship it.</p>
-          <ul class="chips" aria-label="Focus areas">
-            <li>Computer Vision</li><li>Vision Transformers</li><li>Vision–Language Models</li><li>Generative AI</li><li>Deep Learning</li><li>PyTorch</li><li>Applied ML</li>
-          </ul>
+          <p class="kicker">About</p>
+          <h2>From plant phenotyping research to AI in production</h2>
+          <p>I'm a Senior Computer Vision Scientist at <strong>Bayer Crop Science</strong>, where I work on deep learning, generative AI, and large vision–language models for real-world production systems. My work spans multi-modal imaging, drone and remote-sensing analytics, transformers for biological sequences, and the MLOps infrastructure that takes these models from notebooks to deployment.</p>
+          <p>Before Bayer, I was a data scientist intern at <strong>Evisort</strong>, building document-intelligence models for table and signature detection. I earned my <strong>Ph.D. at Iowa State University</strong>, majoring in Mechanical Engineering with minors in Computer Science and Plant Breeding, with research on high-throughput monitoring of plant growth using machine learning and deep learning.</p>
         </div>
-
         <div class="about__side">
-          <p class="kicker reveal">Instructors</p>
-          <article class="person reveal">
-            <img src="https://github.com/seyedvahidmirnezami.png?size=160" alt="" width="56" height="56" loading="lazy">
+          <article class="focus reveal">
+            <span class="focus__icon focus__icon--cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span>
             <div>
-              <h3>Seyed Vahid Mirnezami</h3>
-              <p class="person__role">Senior Computer Vision Scientist</p>
-              <p>Deep learning, generative AI and vision–language models.</p>
-              <div class="person__links">
-                <a href="https://github.com/seyedvahidmirnezami" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/in/seyedvahidmirnezami" target="_blank" rel="noopener">LinkedIn</a>
-              </div>
+              <h3>Current focus</h3>
+              <p>Generative AI and vision–language models for production, and automated deep learning pipelines with active learning on Amazon SageMaker.</p>
             </div>
           </article>
-          <article class="person reveal">
-            <img src="https://github.com/khalili65.png?size=160" alt="" width="56" height="56" loading="lazy">
+          <article class="focus reveal">
+            <span class="focus__icon focus__icon--amber" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
             <div>
-              <h3>Mohammad R. Khalili Shoja</h3>
-              <p class="person__role">Staff Data Scientist, Walmart Global Tech</p>
-              <p>Recommender systems, ranking and retrieval. Previously tech lead for paid-search relevance at Microsoft.</p>
-              <div class="person__links">
-                <a href="https://khalili65.github.io/" target="_blank" rel="noopener">Website</a>
-                <a href="https://github.com/khalili65" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/in/mohammad-reza-khalili-shoja" target="_blank" rel="noopener">LinkedIn</a>
-              </div>
+              <h3>Built in production</h3>
+              <p>Multi-modal image models (RGB, X-ray, hyperspectral, fluorescence and laser), UAV-based plant counting, insect segmentation, and DNA-BERT for biological sequences.</p>
+            </div>
+          </article>
+          <article class="focus reveal">
+            <span class="focus__icon focus__icon--violet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M5 10v5c0 1.7 3.1 3.5 7 3.5s7-1.8 7-3.5v-5"/></svg></span>
+            <div>
+              <h3>Teaching</h3>
+              <p>Co-creator of <a href="https://latentquest.ai/" target="_blank" rel="noopener">LatentQuest</a>, teaching transformers, BERT, Vision Transformers and semantic search from first principles.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section class="section final">
+    <!-- EXPERIENCE -->
+    <section class="section section--alt" id="experience">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">Experience</p>
+          <h2>Where I've worked</h2>
+        </div>
+
+        <ol class="timeline">
+          <li class="job reveal">
+            <div class="job__head">
+              <div>
+                <h3>Senior Computer Vision Scientist</h3>
+                <p class="job__org">Bayer Crop Science · St. Louis, MO</p>
+              </div>
+              <span class="job__date">Jul 2019 – Present</span>
+            </div>
+            <ul class="job__points">
+              <li>Developing deep learning, generative AI and vision–language models for production systems.</li>
+              <li>Building infrastructure that automates the deep learning pipeline (development, testing and deployment) with MLOps, integrating <strong>active learning</strong> and CI/CD on <strong>Amazon SageMaker</strong>.</li>
+              <li>Implemented <strong>DNA-BERT</strong> with transformers to encode DNA sequences, and validated its predictions of RNA-binding protein preferences for Arabidopsis annotations.</li>
+              <li>Developed a multi-task model that classifies and segments insects on leaves with <strong>over 0.92 accuracy</strong>.</li>
+              <li>Fine-tuned <strong>ResNet</strong> on multi-modal images (RGB, X-ray, hyperspectral, fluorescence and laser), and found the most informative channels with an LSTM attention model, saliency maps and feature selection.</li>
+              <li>Selected field sampling locations with machine learning and remote-sensing images, optimized drone flight paths, and designed an LSTM model to count germinated plants from UAV images.</li>
+              <li>Leading a cross-team project to define a standard label format for image datasets used by computer vision teams across the company (since 2021).</li>
+              <li>Mentored a computer vision intern who built a multi-task segmentation and classification model, and interviewed 30+ candidates for five roles.</li>
+            </ul>
+            <ul class="tags"><li>Computer vision</li><li>Transformers</li><li>MLOps</li><li>SageMaker</li><li>Remote sensing</li></ul>
+          </li>
+
+          <li class="job reveal">
+            <div class="job__head">
+              <div>
+                <h3>Data Scientist Intern</h3>
+                <p class="job__org">Evisort · San Francisco Bay Area, CA</p>
+              </div>
+              <span class="job__date">Oct 2018 – Apr 2019</span>
+            </div>
+            <ul class="job__points">
+              <li>Detected tables in documents with an <strong>autoencoder</strong> and recognized their content with OCR.</li>
+              <li>Detected signatures with object detection and classified signed documents.</li>
+              <li>Built a web application with Dash and Flask on Google Cloud Platform.</li>
+              <li>Worked with the data science team on NLP models for text feature extraction.</li>
+            </ul>
+            <ul class="tags"><li>Document AI</li><li>Object detection</li><li>OCR</li><li>GCP</li></ul>
+          </li>
+
+          <li class="job reveal">
+            <div class="job__head">
+              <div>
+                <h3>Graduate Research Assistant</h3>
+                <p class="job__org">Iowa State University · Ames, IA</p>
+              </div>
+              <span class="job__date">Aug 2015 – Jul 2019</span>
+            </div>
+            <ul class="job__points">
+              <li>Ph.D. research on <strong>high-throughput monitoring of plant growth</strong> using machine learning and deep learning.</li>
+              <li>Led two senior computer science students who built a web-based phenotyping application for plant breeders and biologists (2017 and 2018).</li>
+            </ul>
+            <ul class="tags"><li>Plant phenotyping</li><li>Computer vision</li><li>Deep learning</li></ul>
+          </li>
+        </ol>
+
+        <div class="edu reveal">
+          <span class="focus__icon focus__icon--cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M5 10v5c0 1.7 3.1 3.5 7 3.5s7-1.8 7-3.5v-5"/></svg></span>
+          <div>
+            <h3>Ph.D., Iowa State University</h3>
+            <p>Major in Mechanical Engineering · Minors in Computer Science and Plant Breeding · 2015 – 2019</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEACHING -->
+    <section class="section" id="teaching">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">Teaching</p>
+          <h2>LatentQuest courses</h2>
+          <p class="section__lead">With <a href="https://khalili65.github.io/" target="_blank" rel="noopener">Mohammad R. Khalili Shoja</a>, I co-create courses that teach AI from the math up: real numbers first, then PyTorch, then real projects.</p>
+        </div>
+
+        <div class="teach" id="teach-courses">
+          <!-- Fallback, replaced by the live course list from latentquest.ai -->
+          <article class="teach-card reveal">
+            <img class="teach-card__img" src="assets/img/og-course.jpg" alt="" loading="lazy">
+            <div class="teach-card__body">
+              <p class="course-card__status">Available now</p>
+              <h3>Master Transformers from Scratch: BERT, ViT &amp; AI Search</h3>
+              <p class="course-card__tagline">From vectors and attention math to BERT, Vision Transformers and two-tower semantic search.</p>
+              <div class="course-card__actions">
+                <a class="btn btn--primary btn--sm" href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/?referralCode=741D2251A98D41859FB9" target="_blank" rel="noopener">Enroll on Udemy</a>
+                <a class="btn btn--ghost btn--sm" href="https://latentquest.ai/" target="_blank" rel="noopener">Course details</a>
+                <a class="btn btn--ghost btn--sm" href="https://latentquest.ai/coupon/?course=transformers" target="_blank" rel="noopener">Get a coupon</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="subhead reveal">Free code from the course</h3>
+        <div class="repo-list">
+          <a class="repo-mini reveal" href="https://github.com/seyedvahidmirnezami/self-attention-from-scratch" target="_blank" rel="noopener"><span>self-attention-from-scratch</span><small>Attention with real numbers, in NumPy and PyTorch</small></a>
+          <a class="repo-mini reveal" href="https://github.com/seyedvahidmirnezami/transformer-encoder-pytorch" target="_blank" rel="noopener"><span>transformer-encoder-pytorch</span><small>The encoder block, and why positional encoding matters</small></a>
+          <a class="repo-mini reveal" href="https://github.com/seyedvahidmirnezami/vision-transformer-cassava" target="_blank" rel="noopener"><span>vision-transformer-cassava</span><small>Fine-tune a Vision Transformer on Kaggle</small></a>
+          <a class="repo-mini reveal" href="https://github.com/seyedvahidmirnezami/semantic-search-two-tower" target="_blank" rel="noopener"><span>semantic-search-two-tower</span><small>Two-tower retrieval and re-ranking from scratch</small></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section section--alt" id="skills">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">Skills</p>
+          <h2>Tools I work with</h2>
+        </div>
+        <div class="skills">
+          <div class="skill-group reveal"><h3>Machine learning</h3><ul class="chips"><li>Deep learning</li><li>2D &amp; 3D computer vision</li><li>NLP</li><li>Transformers</li><li>BERT</li><li>Vision–language models</li><li>Generative AI</li><li>Feature engineering &amp; selection</li></ul></div>
+          <div class="skill-group reveal"><h3>Frameworks</h3><ul class="chips"><li>PyTorch</li><li>TensorFlow</li><li>Keras</li><li>OpenCV</li><li>scikit-learn</li><li>pandas</li><li>NetworkX</li><li>statsmodels</li><li>NLTK</li></ul></div>
+          <div class="skill-group reveal"><h3>Cloud &amp; MLOps</h3><ul class="chips"><li>AWS</li><li>Amazon SageMaker</li><li>GCP</li><li>Spark</li><li>CI/CD</li><li>MySQL</li><li>Linux</li></ul></div>
+          <div class="skill-group reveal"><h3>Languages &amp; web</h3><ul class="chips"><li>Python</li><li>C++</li><li>C#</li><li>R</li><li>JavaScript</li><li>MATLAB</li><li>Django</li><li>Flask</li><li>Dash</li><li>Plotly</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section final" id="contact">
       <div class="container final__inner reveal">
-        <h2>Stop treating transformers as a black box.</h2>
-        <p>Go from vectors and dot products to BERT, Vision Transformers and semantic search, with code you understand line by line.</p>
+        <h2>Let's connect</h2>
+        <p>Open to conversations about computer vision, vision–language models, and teaching AI. The fastest way to reach me is LinkedIn.</p>
         <div class="hero__ctas hero__ctas--center">
-          <a class="btn btn--primary" data-featured-link href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/?referralCode=741D2251A98D41859FB9" target="_blank" rel="noopener">
-            Start the course
+          <a class="btn btn--primary" href="https://www.linkedin.com/in/seyedvahidmirnezami" target="_blank" rel="noopener">
+            Message me on LinkedIn
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn btn--ghost" data-coupon-link href="coupon/">Get a coupon</a>
+          <a class="btn btn--ghost" href="https://github.com/seyedvahidmirnezami" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn--ghost" href="https://latentquest.ai/" target="_blank" rel="noopener">LatentQuest</a>
         </div>
       </div>
     </section>
@@ -279,16 +284,17 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <p>© <span id="year"></span> Seyed Vahid Mirnezami · LatentQuest</p>
+      <p>© <span id="year"></span> Seyed Vahid Mirnezami</p>
       <nav aria-label="Footer">
         <a href="https://github.com/seyedvahidmirnezami" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/seyedvahidmirnezami" target="_blank" rel="noopener">LinkedIn</a>
-        <a data-featured-link href="https://www.udemy.com/course/master-transformers-from-scratch-bert-vit-ai-search/?referralCode=741D2251A98D41859FB9" target="_blank" rel="noopener">Udemy</a>
+        <a href="https://latentquest.ai/" target="_blank" rel="noopener">LatentQuest</a>
       </nav>
     </div>
   </footer>
 
-  <script src="assets/data/site.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
+  <!-- LatentQuest's course data first, so new courses appear here automatically. -->
+  <script src="https://latentquest.ai/assets/data/site.js" defer></script>
+  <script src="assets/js/portfolio.js" defer></script>
 </body>
 </html>
